@@ -14,7 +14,7 @@ const toggleLeftDrawer = () => {
 
       <q-header elevated class="text-white bg-blue-6" color="#f3dd31" >
         <q-toolbar>
-            <q-btn dense flat round color="black" icon="menu" @click="toggleLeftDrawer" />
+            <q-btn dense flat round color="white" icon="menu" @click="toggleLeftDrawer" />
 
             <div class="toolbar-title">Vue Test</div>
 
@@ -26,7 +26,7 @@ const toggleLeftDrawer = () => {
               flat
               round
               dense
-              color="black"
+              color="white"
               icon="exit_to_app"
               @click="logout"
               />
@@ -48,14 +48,12 @@ const toggleLeftDrawer = () => {
 <style scoped>
 
 .toolbar-title {
-  color: #000;
   font-size: 20px;
   margin-left: 10px;
 }
 
 .toolbar-user {
-  color: #000;
-  margin-right: 10px;
+    margin-right: 10px;
 }
 
 </style>
