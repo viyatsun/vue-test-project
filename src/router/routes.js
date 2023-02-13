@@ -14,6 +14,11 @@ const routes = [
     name: 'carousel',
     component: () => import('../pages/CarouselPage.vue'),
   },
+  {
+    path: '/login',
+    name: 'login',
+    component: () => import('../pages/LoginPage.vue'),
+  },
 ];
 
 export default routes;
