@@ -20,11 +20,13 @@ const UserService = {
     * */
   async login(login, password) {
     const requestData = {
-      method: 'post',
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
       url: '/auth/login',
       data: {
-        username: login,
-        password,
+        username: 'kminchelle',
+        password: '0lelplR',
+        // expiresInMins: 60, // optional
       },
     };
 
