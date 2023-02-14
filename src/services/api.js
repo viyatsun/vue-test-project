@@ -8,7 +8,7 @@ const ApiService = {
   },
 
   setHeader() {
-    axios.defaults.headers.common['Authorization'] = `Bearer ${TokenService.getToken()}`;
+    axios.defaults.headers.common.Authorization = `Bearer ${TokenService.getToken()}`;
   },
 
   removeHeader() {
