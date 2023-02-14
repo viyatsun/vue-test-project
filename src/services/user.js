@@ -24,8 +24,8 @@ const UserService = {
       headers: { 'Content-Type': 'application/json' },
       url: '/auth/login',
       data: {
-        username: 'kminchelle',
-        password: '0lelplR',
+        username: login,
+        password,
         // expiresInMins: 60, // optional
       },
     };
@@ -34,7 +34,7 @@ const UserService = {
       const response = await ApiService.customRequest(requestData);
 
       TokenService.saveToken(response.data.token);
-      TokenService.saveRefreshToken(response.data.refreshToken);
+      //TokenService.saveRefreshToken(response.data.refreshToken);
       ApiService.setHeader();
 
       return response.data.token;
@@ -50,7 +50,7 @@ const UserService = {
     * */
   logout() {
     TokenService.removeToken();
-    TokenService.removeRefreshToken();
+    //TokenService.removeRefreshToken();
     ApiService.removeHeader();
   },
 };
