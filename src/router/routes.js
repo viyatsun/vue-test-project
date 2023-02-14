@@ -1,19 +1,27 @@
 const routes = [
   {
     path: '/',
-    name: 'Home',
+    name: 'home',
     component: () => import('../pages/MainLayout.vue'),
+    children: [
+      {
+        path: '/table',
+        name: 'table',
+        component: () => import('../pages/TablePage.vue'),
+      },
+      {
+        path: '/carousel',
+        name: 'carousel',
+        component: () => import('../pages/CarouselPage.vue'),
+      },
+      {
+        path: '/news',
+        name: 'news',
+        component: () => import('../pages/NewsPage.vue'),
+      },
+    ],
   },
-  {
-    path: '/table',
-    name: 'table',
-    component: () => import('../pages/CarouselPage.vue'),
-  },
-  {
-    path: '/carousel',
-    name: 'carousel',
-    component: () => import('../pages/CarouselPage.vue'),
-  },
+
   {
     path: '/login',
     name: 'login',
