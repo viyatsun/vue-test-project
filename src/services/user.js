@@ -32,7 +32,6 @@ const UserService = {
       const response = await ApiService.customRequest(requestData);
 
       TokenService.saveToken(response.data.token);
-      TokenService.saveRefreshToken(response.data.refreshToken);
       ApiService.setHeader();
 
       return response.data.token;
@@ -48,7 +47,6 @@ const UserService = {
     * */
   logout() {
     TokenService.removeToken();
-    TokenService.removeRefreshToken();
     ApiService.removeHeader();
   },
 };
