@@ -17,13 +17,12 @@ const handleSubmit = () => {
   authStore.login({ login: login.value, password: password.value });
 };
 
-const errorAuhorization = ref('');
+const errorAuhorizationMessage = computed(() => (authStore.authenticationError === 'Invalid credentials' ? 'Неправильний логін або пароль Спробуйте ще' : ''));
 
 </script>
 
 <template>
   <div class="container">
-    <div>{{ authStore.authenticationError }}</div>
 
     <div class="login-page ">
 
@@ -62,7 +61,9 @@ const errorAuhorization = ref('');
             type="submit"
           />
 
-        <div>{{ errorAuhorization }}</div>
+        <div class="errorMessage">
+          {{ errorAuhorizationMessage }}
+        </div>
 
         </q-form>
 
@@ -92,6 +93,7 @@ const errorAuhorization = ref('');
     border-radius: 10px;
     padding: 30px;
     max-width: 330px;
+    height: 450px;
   }
   .form-input {
     background-color: #f2f2f2;
@@ -104,6 +106,11 @@ const errorAuhorization = ref('');
     cursor: pointer;
     font-size: 20px;
 
+  }
+
+  .errorMessage {
+    text-align: center;
+    color: red;
   }
 
   </style>
