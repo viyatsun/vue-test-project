@@ -18,8 +18,6 @@ const useAuthStore = defineStore('authSore', {
         const token = await UserService.login(login, password);
         this.loginSuccess(token);
 
-        // Redirect the user to the page he first tried to visit or to the home view
-        // router.push(router.history.current.query.redirect || '/');
         router.push('/');
 
         return true;
