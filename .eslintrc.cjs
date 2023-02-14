@@ -18,6 +18,8 @@ module.exports = {
   ],
   rules: {
 
+    'linebreak-style': 0,
+
     semi: 'error',
 
     'no-console': 'error',
