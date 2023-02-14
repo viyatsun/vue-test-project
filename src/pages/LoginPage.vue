@@ -1,5 +1,8 @@
-<script setup lang>
+<script setup>
 import { ref, computed } from 'vue';
+import useAuthStore from '../stores/auth';
+
+const authStore = useAuthStore();
 
 const login = ref('');
 const password = ref('');
@@ -10,6 +13,24 @@ const iconVisible = computed(() => (passwordVisible.value ? 'visibility' : 'visi
 const typeInputPassword = computed(() => (passwordVisible.value ? 'text' : 'password'));
 const cannotSubmitForm = computed(() => login.value === '' || password.value === '');
 
+const handleSubmit = () => {
+  authStore.login({ login: login.value, password: password.value });
+};
+
+// fetch('https://dummyjson.com/auth/login', {
+//   method: 'POST',
+//   headers: { 'Content-Type': 'application/json' },
+//   body: ({
+//     username: 'kminchelle',
+//     password: '0lelplR',
+//   }),
+// })
+//   .then((res) => res.json())
+//   .then(console.log);
+
+// eslint-disable-next-line no-console
+console.log(import.meta.env.VITE_BASE_API_URL);
+
 </script>
 
 <template>
@@ -19,6 +40,7 @@ const cannotSubmitForm = computed(() => login.value === '' || password.value ===
 
         <q-form
           class="login-form q-gutter-y-md "
+          @submit.prevent="handleSubmit"
         >
         <p class="p-signin">Авторизуйтесь, будь ласка, в тестовому додатку</p>
           <q-input

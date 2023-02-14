@@ -5,7 +5,7 @@ const routes = [
     component: () => import('../pages/MainLayout.vue'),
     children: [
       {
-        path: '/table',
+        path: '',
         name: 'table',
         component: () => import('../pages/TablePage.vue'),
       },
@@ -26,6 +26,10 @@ const routes = [
     path: '/login',
     name: 'login',
     component: () => import('../pages/LoginPage.vue'),
+  },
+  {
+    path: '/:catchAll(.*)*',
+    component: () => import('../pages/404Page.vue'),
   },
 ];
 
