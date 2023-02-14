@@ -1,6 +1,7 @@
 import { defineStore } from 'pinia';
 import { UserService, AuthenticationError } from '../services/user';
 import { TokenService } from '../services/storage';
+import router from '../router';
 
 const useAuthStore = defineStore('authSore', {
   state: () => ({
@@ -19,7 +20,7 @@ const useAuthStore = defineStore('authSore', {
 
         // Redirect the user to the page he first tried to visit or to the home view
         // router.push(router.history.current.query.redirect || '/');
-        this.router.push('/');
+        router.push('/');
 
         return true;
       } catch (e) {
