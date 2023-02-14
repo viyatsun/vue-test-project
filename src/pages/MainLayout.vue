@@ -12,7 +12,7 @@ const toggleLeftDrawer = () => {
 <template>
     <q-layout view="hHh lpR fFf">
 
-      <q-header elevated class="text-white bg-blue-6" color="#f3dd31" >
+      <q-header elevated class="text-white bg-blue-6" >
         <q-toolbar>
             <q-btn dense flat round color="white" icon="menu" @click="toggleLeftDrawer" />
 
@@ -33,8 +33,47 @@ const toggleLeftDrawer = () => {
         </q-toolbar>
       </q-header>
 
-      <q-drawer show-if-above v-model="leftDrawerOpen" side="left" bordered>
-        <!-- drawer content -->
+    <q-drawer
+        v-model="leftDrawerOpen"
+        show-if-above bordered
+        :width="230"
+        class="sidebar"
+      >
+      <q-scroll-area class="fit sidebar" :thumb-style="thumbStyle">
+        <q-item
+          :to="{name: 'table'}"
+          active-class="q-item-no-link-highlighting">
+          <q-item-section avatar>
+            <q-icon name="table_view" />
+          </q-item-section>
+          <q-item-section>
+            <q-item-label>Таблиця</q-item-label>
+          </q-item-section>
+        </q-item>
+
+        <q-item
+          :to="{name: 'carousel'}"
+          active-class="q-item-no-link-highlighting">
+          <q-item-section avatar>
+            <q-icon name="collections" />
+          </q-item-section>
+          <q-item-section>
+            <q-item-label>Галерея</q-item-label>
+          </q-item-section>
+        </q-item>
+
+        <q-item
+          :to="{name: 'carousel'}"
+          active-class="q-item-no-link-highlighting">
+          <q-item-section avatar>
+            <q-icon name="newspaper" />
+          </q-item-section>
+          <q-item-section>
+            <q-item-label>Новини</q-item-label>
+          </q-item-section>
+        </q-item>
+      </q-scroll-area>
+
       </q-drawer>
 
       <q-page-container>
@@ -54,6 +93,10 @@ const toggleLeftDrawer = () => {
 
 .toolbar-user {
     margin-right: 10px;
+}
+
+.sidebar {
+  background-color: yellow;
 }
 
 </style>
