@@ -35,7 +35,7 @@ const useAuthStore = defineStore('authSore', {
     logout() {
       UserService.logout();
       this.loginSuccess();
-      this.router.push('/login');
+      router.push('/login');
     },
 
     loginRequest() {

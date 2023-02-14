@@ -46,7 +46,7 @@ const toggleLeftDrawer = () => {
         :width="230"
         class="sidebar"
       >
-      <q-scroll-area class="fit sidebar">
+      <q-scroll-area class="fit sidebar" :thumb-style="thumbStyle">
         <q-item
           :to="{name: 'table'}"
           active-class="q-item-no-link-highlighting">
