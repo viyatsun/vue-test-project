@@ -63,7 +63,7 @@ const toggleLeftDrawer = () => {
         </q-item>
 
         <q-item
-          :to="{name: 'carousel'}"
+          :to="{name: 'news'}"
           active-class="q-item-no-link-highlighting">
           <q-item-section avatar>
             <q-icon name="newspaper" />
