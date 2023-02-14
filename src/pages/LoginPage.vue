@@ -17,24 +17,13 @@ const handleSubmit = () => {
   authStore.login({ login: login.value, password: password.value });
 };
 
-// fetch('https://dummyjson.com/auth/login', {
-//   method: 'POST',
-//   headers: { 'Content-Type': 'application/json' },
-//   body: ({
-//     username: 'kminchelle',
-//     password: '0lelplR',
-//   }),
-// })
-//   .then((res) => res.json())
-//   .then(console.log);
-
-// eslint-disable-next-line no-console
-console.log(import.meta.env.VITE_BASE_API_URL);
+const errorAuhorization = ref('');
 
 </script>
 
 <template>
   <div class="container">
+    <div>{{ authStore.authenticationError }}</div>
 
     <div class="login-page ">
 
@@ -72,6 +61,8 @@ console.log(import.meta.env.VITE_BASE_API_URL);
             :disable="cannotSubmitForm"
             type="submit"
           />
+
+        <div>{{ errorAuhorization }}</div>
 
         </q-form>
 
