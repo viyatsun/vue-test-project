@@ -14,17 +14,17 @@ const TokenService = {
     localStorage.removeItem(TOKEN_KEY);
   },
 
-  getRefreshToken() {
-    return localStorage.getItem(REFRESH_TOKEN_KEY);
-  },
+  // getRefreshToken() {
+  //   return localStorage.getItem(REFRESH_TOKEN_KEY);
+  // },
 
-  saveRefreshToken(refreshToken) {
-    localStorage.setItem(REFRESH_TOKEN_KEY, refreshToken);
-  },
+  // saveRefreshToken(refreshToken) {
+  //   localStorage.setItem(REFRESH_TOKEN_KEY, refreshToken);
+  // },
 
-  removeRefreshToken() {
-    localStorage.removeItem(REFRESH_TOKEN_KEY);
-  },
+  // removeRefreshToken() {
+  //   localStorage.removeItem(REFRESH_TOKEN_KEY);
+  // },
 
 };
 

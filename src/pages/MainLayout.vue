@@ -1,5 +1,12 @@
 <script setup>
 import { ref } from 'vue';
+import useAuthStore from '../stores/auth';
+
+const authStore = useAuthStore();
+
+const logOut = () => {
+  authStore.logout();
+};
 
 const leftDrawerOpen = ref(false);
 
@@ -28,7 +35,7 @@ const toggleLeftDrawer = () => {
               dense
               color="white"
               icon="exit_to_app"
-              @click="logout"
+              @click="logOut"
               />
         </q-toolbar>
       </q-header>
