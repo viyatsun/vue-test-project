@@ -1,6 +1,6 @@
 import ApiService from './api';
 
-import { TokenService } from './storage';
+import TokenService from './storage';
 
 class AuthenticationError extends Error {
   constructor(errorCode, message) {

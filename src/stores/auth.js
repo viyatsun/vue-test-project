@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia';
 import { UserService, AuthenticationError } from '../services/user';
-import { TokenService } from '../services/storage';
+import TokenService from '../services/storage';
 import router from '../router';
 
 const useAuthStore = defineStore('authStore', {

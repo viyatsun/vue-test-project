@@ -1,7 +1,7 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import { createRouter, createWebHistory } from 'vue-router';
 import routes from './routes';
-import { TokenService } from '../services/storage';
+import TokenService from '../services/storage';
 
 const router = createRouter({
   routes,

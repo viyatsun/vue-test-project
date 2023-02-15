@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { TokenService } from './storage';
+import TokenService from './storage';
 
 const ApiService = {
 

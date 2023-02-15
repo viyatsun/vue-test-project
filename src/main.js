@@ -11,7 +11,7 @@ import 'quasar/dist/quasar.css';
 
 import App from './App.vue';
 
-import { TokenService } from './services/storage';
+import TokenService from './services/storage';
 import ApiService from './services/api';
 
 ApiService.init(import.meta.env.VITE_BASE_API_URL);

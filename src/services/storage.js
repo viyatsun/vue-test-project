@@ -42,5 +42,4 @@ const TokenService = {
   },
 
 };
-// eslint-disable-next-line import/prefer-default-export
-export { TokenService };
+export default TokenService;
