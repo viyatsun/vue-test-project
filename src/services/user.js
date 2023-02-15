@@ -1,6 +1,7 @@
 import ApiService from './api';
 
-import { TokenService } from './storage';
+import TokenService from './storage';
+import UserDataService from './user_data';
 
 class AuthenticationError extends Error {
   constructor(errorCode, message) {
@@ -12,12 +13,7 @@ class AuthenticationError extends Error {
 }
 
 const UserService = {
-  /**
-     * Login the user and store the access token to TokenService.
-     *
-     * @returns access_token
-     * @throws AuthenticationError
-    * */
+
   async login(login, password) {
     const requestData = {
       method: 'POST',
@@ -26,7 +22,6 @@ const UserService = {
       data: {
         username: login,
         password,
-        // expiresInMins: 60, // optional
       },
     };
 
@@ -34,9 +29,8 @@ const UserService = {
       const response = await ApiService.customRequest(requestData);
 
       TokenService.saveToken(response.data.token);
-      TokenService.saveUserName(response.data.username);
-      TokenService.saveUserPhoto(response.data.image);
-      // TokenService.saveRefreshToken(response.data.refreshToken);
+      UserDataService.saveUserName(response.data.username);
+      UserDataService.saveUserPhoto(response.data.image);
       ApiService.setHeader();
 
       return response.data.token;
@@ -45,20 +39,12 @@ const UserService = {
     }
   },
 
-  /**
-     * Logout the current user by removing the token from storage.
-     *
-     * Will also remove `Authorization Bearer <token>` header from future requests.
-    * */
   logout() {
     TokenService.removeToken();
-    TokenService.removeUserPhoto();
-    TokenService.removeUserName();
-    // TokenService.removeRefreshToken();
+    UserDataService.removeUserPhoto();
+    UserDataService.removeUserName();
     ApiService.removeHeader();
   },
 };
-
-export default UserService;
 
 export { UserService, AuthenticationError };

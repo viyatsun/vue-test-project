@@ -17,7 +17,7 @@ const toggleLeftDrawer = () => {
 </script>
 
 <template>
-    <q-layout view="hHh lpR fFf">
+    <q-layout view="hHh Lpr lFf">
 
       <q-header elevated class="text-white bg-blue-6" >
         <q-toolbar>
