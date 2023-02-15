@@ -4,7 +4,7 @@ import { ref } from 'vue';
 
 import useEatStore from '../stores/table';
 
-const eatStore = useEatStore(); 
+const eatStore = useEatStore();
 
 const visibleColumns = ref(['calories', 'desc', 'fat', 'carbs', 'protein', 'sodium', 'calcium', 'iron']);
 

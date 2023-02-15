@@ -34,12 +34,14 @@ const UserService = {
       const response = await ApiService.customRequest(requestData);
 
       TokenService.saveToken(response.data.token);
-      //TokenService.saveRefreshToken(response.data.refreshToken);
+      TokenService.saveUserName(response.data.username);
+      TokenService.saveUserPhoto(response.data.image);
+      // TokenService.saveRefreshToken(response.data.refreshToken);
       ApiService.setHeader();
 
       return response.data.token;
     } catch (error) {
-      throw new AuthenticationError(error.response.status, error.response.data.detail);
+      throw new AuthenticationError(error.response.status, error.response.data.message);
     }
   },
 
@@ -50,7 +52,9 @@ const UserService = {
     * */
   logout() {
     TokenService.removeToken();
-    //TokenService.removeRefreshToken();
+    TokenService.removeAvatar();
+    TokenService.removeNick();
+    // TokenService.removeRefreshToken();
     ApiService.removeHeader();
   },
 };

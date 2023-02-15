@@ -17,19 +17,7 @@ const handleSubmit = () => {
   authStore.login({ login: login.value, password: password.value });
 };
 
-// fetch('https://dummyjson.com/auth/login', {
-//   method: 'POST',
-//   headers: { 'Content-Type': 'application/json' },
-//   body: ({
-//     username: 'kminchelle',
-//     password: '0lelplR',
-//   }),
-// })
-//   .then((res) => res.json())
-//   .then(console.log);
-
-// eslint-disable-next-line no-console
-console.log(import.meta.env.VITE_BASE_API_URL);
+const errorAuhorizationMessage = computed(() => (authStore.authenticationError === 'Invalid credentials' ? 'Неправильний логін або пароль Спробуйте ще' : ''));
 
 </script>
 
@@ -73,6 +61,10 @@ console.log(import.meta.env.VITE_BASE_API_URL);
             type="submit"
           />
 
+        <div class="errorMessage">
+          {{ errorAuhorizationMessage }}
+        </div>
+
         </q-form>
 
     </div>
@@ -101,6 +93,7 @@ console.log(import.meta.env.VITE_BASE_API_URL);
     border-radius: 10px;
     padding: 30px;
     max-width: 330px;
+    height: 450px;
   }
   .form-input {
     background-color: #f2f2f2;
@@ -113,6 +106,11 @@ console.log(import.meta.env.VITE_BASE_API_URL);
     cursor: pointer;
     font-size: 20px;
 
+  }
+
+  .errorMessage {
+    text-align: center;
+    color: red;
   }
 
   </style>
