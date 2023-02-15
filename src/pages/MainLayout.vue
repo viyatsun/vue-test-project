@@ -27,7 +27,11 @@ const toggleLeftDrawer = () => {
 
             <q-space />
 
-            <div class="toolbar-user">Bayraktar</div>
+            <div class="toolbar-user">{{ authStore.userName }}</div>
+
+            <q-img :src=authStore.userPhoto
+              class="user_photo"
+            ></q-img>
 
             <q-btn
               flat
@@ -104,6 +108,11 @@ const toggleLeftDrawer = () => {
 
 .sidebar {
   background-color: yellow;
+}
+
+.user_photo {
+  width: 40px;
+  margin-right: 20px;
 }
 
 </style>

@@ -3,12 +3,14 @@ import { UserService, AuthenticationError } from '../services/user';
 import { TokenService } from '../services/storage';
 import router from '../router';
 
-const useAuthStore = defineStore('authSore', {
+const useAuthStore = defineStore('authStore', {
   state: () => ({
     authenticating: false,
     accessToken: TokenService.getToken(),
     authenticationErrorCode: 0,
     authenticationError: '',
+    userName: TokenService.getUserName(),
+    userPhoto: TokenService.getUserPhoto(),
   }),
   actions: {
     async login({ login, password }) {

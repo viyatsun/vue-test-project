@@ -34,6 +34,8 @@ const UserService = {
       const response = await ApiService.customRequest(requestData);
 
       TokenService.saveToken(response.data.token);
+      TokenService.saveUserName(response.data.username);
+      TokenService.saveUserPhoto(response.data.image);
       // TokenService.saveRefreshToken(response.data.refreshToken);
       ApiService.setHeader();
 
@@ -50,6 +52,8 @@ const UserService = {
     * */
   logout() {
     TokenService.removeToken();
+    TokenService.removeAvatar();
+    TokenService.removeNick();
     // TokenService.removeRefreshToken();
     ApiService.removeHeader();
   },
