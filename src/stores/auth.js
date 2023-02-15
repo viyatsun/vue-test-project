@@ -18,8 +18,8 @@ const useAuthStore = defineStore('authStore', {
       this.loginRequest();
 
       try {
-        const token = await UserService.login(login, password);
-        this.loginSuccess(token);
+        const { token, image, username } = await UserService.login(login, password);
+        this.loginSuccess({ token, image, username });
 
         router.push('/');
 
@@ -44,8 +44,11 @@ const useAuthStore = defineStore('authStore', {
       this.authenticationError = '';
       this.authenticationErrorCode = 0;
     },
-    loginSuccess(accessToken) {
-      this.accessToken = accessToken;
+    loginSuccess({ token, image, username }) {
+      this.accessToken = token;
+      this.userName = username;
+      this.userPhoto = image;
+
       this.authenticating = false;
     },
     loginError({ errorCode, errorMessage }) {

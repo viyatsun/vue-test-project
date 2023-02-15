@@ -2,7 +2,6 @@ import axios from 'axios';
 import TokenService from './storage';
 
 const ApiService = {
-
   init(baseURL) {
     axios.defaults.baseURL = baseURL;
   },

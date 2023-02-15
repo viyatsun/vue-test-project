@@ -3,7 +3,6 @@ const USER_NAME = 'user_name';
 const USER_PHOTO = 'user_photo';
 
 const UserDataService = {
-
   getUserName() {
     return localStorage.getItem(USER_NAME);
   },
