@@ -13,7 +13,6 @@ class AuthenticationError extends Error {
 }
 
 const UserService = {
-
   async login(login, password) {
     const requestData = {
       method: 'POST',
@@ -33,9 +32,12 @@ const UserService = {
       UserDataService.saveUserPhoto(response.data.image);
       ApiService.setHeader();
 
-      return response.data.token;
+      return response.data;
     } catch (error) {
-      throw new AuthenticationError(error.response.status, error.response.data.message);
+      throw new AuthenticationError(
+        error.response.status,
+        error.response.data.message,
+      );
     }
   },
 

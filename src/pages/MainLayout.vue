@@ -13,47 +13,52 @@ const leftDrawerOpen = ref(false);
 const toggleLeftDrawer = () => {
   leftDrawerOpen.value = !leftDrawerOpen.value;
 };
-
 </script>
 
 <template>
-    <q-layout view="hHh Lpr lFf">
+  <q-layout view="hHh Lpr lFf">
+    <q-header elevated class="text-white bg-blue-6">
+      <q-toolbar>
+        <q-btn
+          dense
+          flat
+          round
+          color="white"
+          icon="menu"
+          @click="toggleLeftDrawer"
+        />
 
-      <q-header elevated class="text-white bg-blue-6" >
-        <q-toolbar>
-            <q-btn dense flat round color="white" icon="menu" @click="toggleLeftDrawer" />
+        <div class="toolbar-title">Vue Test</div>
 
-            <div class="toolbar-title">Vue Test</div>
+        <q-space />
 
-            <q-space />
+        <div class="toolbar-user">{{ authStore.userName }}</div>
 
-            <div class="toolbar-user">{{ authStore.userName }}</div>
+        <q-img :src="authStore.userPhoto" class="user_photo"></q-img>
 
-            <q-img :src=authStore.userPhoto
-              class="user_photo"
-            ></q-img>
-
-            <q-btn
-              flat
-              round
-              dense
-              color="white"
-              icon="exit_to_app"
-              @click="logOut"
-              />
-        </q-toolbar>
-      </q-header>
+        <q-btn
+          flat
+          round
+          dense
+          color="white"
+          icon="exit_to_app"
+          @click="logOut"
+        />
+      </q-toolbar>
+    </q-header>
 
     <q-drawer
-        v-model="leftDrawerOpen"
-        show-if-above bordered
-        :width="230"
-        class="sidebar"
-      >
+      v-model="leftDrawerOpen"
+      show-if-above
+      bordered
+      :width="230"
+      class="sidebar"
+    >
       <q-scroll-area class="fit sidebar">
         <q-item
-          :to="{name: 'table'}"
-          active-class="q-item-no-link-highlighting">
+          :to="{ name: 'table' }"
+          active-class="q-item-no-link-highlighting"
+        >
           <q-item-section avatar>
             <q-icon name="table_view" />
           </q-item-section>
@@ -63,8 +68,9 @@ const toggleLeftDrawer = () => {
         </q-item>
 
         <q-item
-          :to="{name: 'carousel'}"
-          active-class="q-item-no-link-highlighting">
+          :to="{ name: 'carousel' }"
+          active-class="q-item-no-link-highlighting"
+        >
           <q-item-section avatar>
             <q-icon name="collections" />
           </q-item-section>
@@ -74,8 +80,9 @@ const toggleLeftDrawer = () => {
         </q-item>
 
         <q-item
-          :to="{name: 'news'}"
-          active-class="q-item-no-link-highlighting">
+          :to="{ name: 'news' }"
+          active-class="q-item-no-link-highlighting"
+        >
           <q-item-section avatar>
             <q-icon name="newspaper" />
           </q-item-section>
@@ -84,26 +91,22 @@ const toggleLeftDrawer = () => {
           </q-item-section>
         </q-item>
       </q-scroll-area>
+    </q-drawer>
 
-      </q-drawer>
-
-      <q-page-container>
-        <router-view />
-      </q-page-container>
-
-    </q-layout>
-
+    <q-page-container>
+      <router-view />
+    </q-page-container>
+  </q-layout>
 </template>
 
 <style scoped>
-
 .toolbar-title {
   font-size: 20px;
   margin-left: 10px;
 }
 
 .toolbar-user {
-    margin-right: 10px;
+  margin-right: 10px;
 }
 
 .sidebar {
@@ -114,5 +117,4 @@ const toggleLeftDrawer = () => {
   width: 40px;
   margin-right: 20px;
 }
-
 </style>
