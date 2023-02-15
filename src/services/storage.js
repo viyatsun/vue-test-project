@@ -1,5 +1,4 @@
 const TOKEN_KEY = 'access_token';
-// const REFRESH_TOKEN_KEY = 'refresh_token';
 
 const USER_NAME = 'user_name';
 
@@ -41,18 +40,6 @@ const TokenService = {
   removeUserPhoto() {
     localStorage.removeItem(USER_PHOTO);
   },
-
-  // getRefreshToken() {
-  //   return localStorage.getItem(REFRESH_TOKEN_KEY);
-  // },
-
-  // saveRefreshToken(refreshToken) {
-  //   localStorage.setItem(REFRESH_TOKEN_KEY, refreshToken);
-  // },
-
-  // removeRefreshToken() {
-  //   localStorage.removeItem(REFRESH_TOKEN_KEY);
-  // },
 
 };
 // eslint-disable-next-line import/prefer-default-export
