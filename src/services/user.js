@@ -52,8 +52,8 @@ const UserService = {
     * */
   logout() {
     TokenService.removeToken();
-    TokenService.removeAvatar();
-    TokenService.removeNick();
+    TokenService.removeUserPhoto();
+    TokenService.removeUserName();
     // TokenService.removeRefreshToken();
     ApiService.removeHeader();
   },
