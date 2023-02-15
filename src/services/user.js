@@ -1,6 +1,7 @@
 import ApiService from './api';
 
 import TokenService from './storage';
+import UserDataService from './user_data';
 
 class AuthenticationError extends Error {
   constructor(errorCode, message) {
@@ -28,8 +29,8 @@ const UserService = {
       const response = await ApiService.customRequest(requestData);
 
       TokenService.saveToken(response.data.token);
-      TokenService.saveUserName(response.data.username);
-      TokenService.saveUserPhoto(response.data.image);
+      UserDataService.saveUserName(response.data.username);
+      UserDataService.saveUserPhoto(response.data.image);
       ApiService.setHeader();
 
       return response.data.token;
@@ -40,8 +41,8 @@ const UserService = {
 
   logout() {
     TokenService.removeToken();
-    TokenService.removeUserPhoto();
-    TokenService.removeUserName();
+    UserDataService.removeUserPhoto();
+    UserDataService.removeUserName();
     ApiService.removeHeader();
   },
 };

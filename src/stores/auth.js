@@ -1,6 +1,7 @@
 import { defineStore } from 'pinia';
 import { UserService, AuthenticationError } from '../services/user';
 import TokenService from '../services/storage';
+import UserDataService from '../services/user_data';
 import router from '../router';
 
 const useAuthStore = defineStore('authStore', {
@@ -9,8 +10,8 @@ const useAuthStore = defineStore('authStore', {
     accessToken: TokenService.getToken(),
     authenticationErrorCode: 0,
     authenticationError: '',
-    userName: TokenService.getUserName(),
-    userPhoto: TokenService.getUserPhoto(),
+    userName: UserDataService.getUserName(),
+    userPhoto: UserDataService.getUserPhoto(),
   }),
   actions: {
     async login({ login, password }) {
