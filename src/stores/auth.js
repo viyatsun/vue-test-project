@@ -35,6 +35,7 @@ const useAuthStore = defineStore('authStore', {
 
     logout() {
       UserService.logout();
+      this.logoutSuccess();
       router.push('/login');
     },
 
@@ -57,6 +58,8 @@ const useAuthStore = defineStore('authStore', {
     },
     logoutSuccess() {
       this.accessToken = '';
+      this.userName = '';
+      this.userPhoto = '';
     },
   },
 });
