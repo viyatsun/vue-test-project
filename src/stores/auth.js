@@ -58,6 +58,8 @@ const useAuthStore = defineStore('authStore', {
     },
     logoutSuccess() {
       this.accessToken = '';
+      this.userName = '';
+      this.userPhoto = '';
     },
   },
 });
