@@ -41,7 +41,7 @@ const filter = ref('');
         dense
         debounce="300"
         color="green"
-        style="width: 300px; margin-right: 30px"
+        style="margin-right: 30px"
         v-model="filter"
         class="input"
       >
