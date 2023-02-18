@@ -55,9 +55,6 @@ const useAuthStore = defineStore('authStore', {
       this.authenticationErrorCode = errorCode;
       this.authenticationError = errorMessage;
     },
-    logoutSuccess() {
-      this.accessToken = '';
-    },
   },
 });
 
