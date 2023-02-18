@@ -35,7 +35,6 @@ const useAuthStore = defineStore('authStore', {
 
     logout() {
       UserService.logout();
-      this.loginSuccess();
       router.push('/login');
     },
 
