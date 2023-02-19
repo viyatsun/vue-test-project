@@ -1,9 +1,9 @@
 <script setup>
 import { ref } from 'vue';
 
-import useEatStore from '../stores/table';
+import useFoodStore from '../stores/table';
 
-const eatStore = useEatStore();
+const foodStore = useFoodStore();
 
 const visibleColumns = ref([
   'calories',
@@ -20,57 +20,55 @@ const filter = ref('');
 </script>
 
 <template>
-  <q-table
-    title="Treats"
-    :rows="eatStore.rows"
-    :columns="eatStore.columns"
-    row-key="name"
-    :visible-columns="visibleColumns"
-    :filter="filter"
-  >
-    <template v-slot:top>
-      <img
-        style="height: 50px; width: 50px"
-        src="https://cdn.quasar.dev/logo-v2/svg/logo.svg"
-      />
+  <div class="q-pa-md">
+    <q-table
+      title="Treats"
+      :rows="foodStore.rows"
+      :columns="foodStore.columns"
+      row-key="name"
+      :visible-columns="visibleColumns"
+      :filter="filter"
+    >
+      <template v-slot:top>
 
-      <q-space></q-space>
+        <q-input
+          outlined
+          dense
+          debounce="300"
+          color="green"
+          style="margin-right: 30px"
+          v-model="filter"
+          class="input"
+        >
+          <template v-slot:append>
+            <q-icon name="search"></q-icon>
+          </template>
+        </q-input>
 
-      <q-input
-        outlined
-        dense
-        debounce="300"
-        color="green"
-        style="margin-right: 30px"
-        v-model="filter"
-        class="input"
-      >
-        <template v-slot:append>
-          <q-icon name="search"></q-icon>
-        </template>
-      </q-input>
+        <q-space></q-space>
 
-      <q-select
-        color="green"
-        v-model="visibleColumns"
-        multiple
-        outlined
-        dense
-        options-dense
-        :display-value="$q.lang.table.columns"
-        emit-value
-        map-options
-        :options="eatStore.columns"
-        option-value="name"
-        options-cover
-        style="min-width: 150px"
-      ></q-select>
-    </template>
-  </q-table>
+        <q-select
+          color="green"
+          v-model="visibleColumns"
+          multiple
+          outlined
+          dense
+          options-dense
+          :display-value="$q.lang.table.columns"
+          emit-value
+          map-options
+          :options="foodStore.columns"
+          option-value="name"
+          options-cover
+          style="min-width: 150px"
+        ></q-select>
+      </template>
+    </q-table>
+</div>
 </template>
 
 <style scoped>
 .input {
-  margin-left: 30px;
+  margin: 10px 0px;
 }
 </style>
