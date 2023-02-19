@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia';
 
-const useFoodStore = defineStore('eat', {
+const useFoodStore = defineStore('food', {
   state: () => ({
     columns: [
       {
