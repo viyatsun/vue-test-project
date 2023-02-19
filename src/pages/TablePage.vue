@@ -1,9 +1,9 @@
 <script setup>
 import { ref } from 'vue';
 
-import useEatStore from '../stores/table';
+import useFoodStore from '../stores/table';
 
-const eatStore = useEatStore();
+const foodStore = useFoodStore();
 
 const visibleColumns = ref([
   'calories',
@@ -23,8 +23,8 @@ const filter = ref('');
   <div class="q-pa-md">
     <q-table
       title="Treats"
-      :rows="eatStore.rows"
-      :columns="eatStore.columns"
+      :rows="foodStore.rows"
+      :columns="foodStore.columns"
       row-key="name"
       :visible-columns="visibleColumns"
       :filter="filter"
@@ -57,7 +57,7 @@ const filter = ref('');
           :display-value="$q.lang.table.columns"
           emit-value
           map-options
-          :options="eatStore.columns"
+          :options="foodStore.columns"
           option-value="name"
           options-cover
           style="min-width: 150px"

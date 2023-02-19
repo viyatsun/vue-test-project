@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia';
 
-const useEatStore = defineStore('eat', {
+const useFoodStore = defineStore('eat', {
   state: () => ({
     columns: [
       {
@@ -149,4 +149,4 @@ const useEatStore = defineStore('eat', {
   }),
 });
 
-export default useEatStore;
+export default useFoodStore;
